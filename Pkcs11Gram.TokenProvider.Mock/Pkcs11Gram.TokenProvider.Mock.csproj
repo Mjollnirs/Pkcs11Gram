@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pkcs11Gram.Core\Pkcs11Gram.Core.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /y $(OutDir)$(TargetName).dll      ..\x64\$(ConfigurationName)\TokenProvider\&#xD;&#xA;copy /y $(OutDir)$(TargetName).pdb   ..\x64\$(ConfigurationName)\TokenProvider\" />
+  </Target>
+
+</Project>
