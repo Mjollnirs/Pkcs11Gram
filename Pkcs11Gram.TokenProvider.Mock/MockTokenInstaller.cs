@@ -23,7 +23,7 @@ using System.Text;
 
 namespace Pkcs11Gram.TokenProvider.Mock
 {
-    public class MockTokenInstaller : SlotInstallerBase<MockProvider, Slot, Token>
+    public class MockTokenInstaller : SlotInstallerBase<MockProvider, Slot, Token, Session>
     {
         public override void Pre()
         {

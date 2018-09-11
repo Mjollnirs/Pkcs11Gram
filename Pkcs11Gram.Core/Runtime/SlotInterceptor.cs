@@ -23,9 +23,9 @@ using Castle.MicroKernel;
 
 namespace Pkcs11Gram.Core.Runtime
 {
-    internal sealed class SlotInterceptor : InterceptorBase
+    public sealed class SlotInterceptor : InterceptorBase
     {
-        public SlotInterceptor(IKernel _kernel) : base(_kernel)
+        public SlotInterceptor(IKernel _kernel, ILogger _logger) : base(_kernel, _logger)
         {
         }
 

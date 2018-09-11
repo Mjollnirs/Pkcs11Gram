@@ -23,9 +23,10 @@ using Pkcs11Gram.Core.Slot;
 
 namespace Pkcs11Gram.Core
 {
-    public abstract class ProviderBase<TSlot, TToken> : IProvider
+    public abstract class ProviderBase<TSlot, TToken, TSession> : IProvider
         where TSlot: class, ISlot
         where TToken: class, IToken
+        where TSession: class, ISession
     {
         private readonly IKernel kernel;
 

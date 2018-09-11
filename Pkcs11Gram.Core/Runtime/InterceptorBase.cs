@@ -27,22 +27,27 @@ namespace Pkcs11Gram.Core.Runtime
     public abstract class InterceptorBase : IInterceptor
     {
         private readonly IKernel kernel;
-        protected ILogger Logger { get => kernel.Resolve<ILogger>(); }
+        protected ILogger Logger { get; private set; }
 
-        public InterceptorBase(IKernel _kernel)
+        public InterceptorBase(IKernel _kernel, ILogger _logger)
         {
             kernel = _kernel;
+            Logger = _logger;
         }
 
         public virtual void Intercept(IInvocation invocation)
         {
             try
             {
+                Logger.DebugFormat("Enter {0} {1}" ,invocation.Method.ReflectedType.FullName, invocation.Method.Name);
                 invocation.Proceed();
-                Task task = (Task)invocation.ReturnValue;
+                if(invocation.ReturnValue is Task)
+                {
+                    Task task = (Task)invocation.ReturnValue;
 
-                if (task.IsFaulted)
-                    throw task.Exception;
+                    if (task.IsFaulted)
+                        throw task.Exception;
+                }
             }
             catch (System.Exception ex)
             {

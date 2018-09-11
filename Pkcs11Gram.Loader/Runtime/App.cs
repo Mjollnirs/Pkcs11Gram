@@ -31,13 +31,13 @@ namespace Pkcs11Gram.Loader.Runtime
 {
     internal sealed class App : AppBase, IApp
     {
-        private readonly IKernel _kernel;
+        internal IKernel Kernel { get; private set; }
         private ILogger m_logger;
 
         public App(IKernel kernel)
             : base(kernel)
         {
-            _kernel = kernel;
+            Kernel = kernel;
             SartupTime = DateTime.Now;
         }
 
@@ -59,7 +59,7 @@ namespace Pkcs11Gram.Loader.Runtime
             get
             {
                 if (m_logger == null)
-                    m_logger = _kernel.Resolve<ILoggerFactory>().Create(typeof(IApp));
+                    m_logger = Kernel.Resolve<ILoggerFactory>().Create(typeof(IApp));
 
                 return m_logger;
             }
@@ -108,7 +108,7 @@ namespace Pkcs11Gram.Loader.Runtime
         /// <returns></returns>
         public async Task<bool> Initialize()
         {
-            var providers = _kernel.ResolveAll<IProvider>();
+            var providers = Kernel.ResolveAll<IProvider>();
 
             foreach (var item in providers)
             {

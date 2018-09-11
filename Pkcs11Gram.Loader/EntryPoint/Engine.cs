@@ -14,21 +14,21 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-using Castle.Windsor;
-using Pkcs11Gram.Core.Pkcs11;
+using Castle.Core.Logging;
 using Pkcs11Gram.Core.Runtime;
-using Pkcs11Gram.Core.Slot;
 using Pkcs11Gram.Loader.Runtime;
-using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        private static readonly IWindsorContainer WindsorContainer = Program.WindsorContainer;
-        private static readonly App App = (App)WindsorContainer.Resolve<IApp>();
+        private readonly App App;
+        private readonly ILogger Logger;
+
+        public Engine(IApp app, ILogger logger)
+        {
+            App = (App)app;
+            Logger = logger;
+        }
     }
 }

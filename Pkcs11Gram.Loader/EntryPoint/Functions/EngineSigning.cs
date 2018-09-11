@@ -21,34 +21,34 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_SignInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
+        public Rv C_SignInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_Sign(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pSignature, ref UInt32 pulSignatureLen)
+        public Rv C_Sign(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pSignature, ref UInt32 pulSignatureLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_SignUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen)
+        public Rv C_SignUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_SignFinal(UInt32 hSession, IntPtr pSignature, ref UInt32 pulSignatureLen)
+        public Rv C_SignFinal(UInt32 hSession, IntPtr pSignature, ref UInt32 pulSignatureLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_SignRecoverInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
+        public Rv C_SignRecoverInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_SignRecover(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pSignature, ref UInt32 pulSignatureLen)
+        public Rv C_SignRecover(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pSignature, ref UInt32 pulSignatureLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

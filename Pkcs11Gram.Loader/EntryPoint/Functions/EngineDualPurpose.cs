@@ -21,24 +21,24 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_DigestEncryptUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen, IntPtr pEncryptedPart, ref UInt32 pulEncryptedPartLen)
+        public Rv C_DigestEncryptUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen, IntPtr pEncryptedPart, ref UInt32 pulEncryptedPartLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_DecryptDigestUpdate(UInt32 hSession, IntPtr pEncryptedPart, UInt32 ulEncryptedPartLen, IntPtr pPart, ref UInt32 pulPartLen)
+        public Rv C_DecryptDigestUpdate(UInt32 hSession, IntPtr pEncryptedPart, UInt32 ulEncryptedPartLen, IntPtr pPart, ref UInt32 pulPartLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_SignEncryptUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen, IntPtr pEncryptedPart, ref UInt32 pulEncryptedPartLen)
+        public Rv C_SignEncryptUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen, IntPtr pEncryptedPart, ref UInt32 pulEncryptedPartLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_DecryptVerifyUpdate(UInt32 hSession, IntPtr pEncryptedPart, UInt32 ulEncryptedPartLen, IntPtr pPart, ref UInt32 pulPartLen)
+        public Rv C_DecryptVerifyUpdate(UInt32 hSession, IntPtr pEncryptedPart, UInt32 ulEncryptedPartLen, IntPtr pPart, ref UInt32 pulPartLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

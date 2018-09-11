@@ -16,6 +16,7 @@
 // limitations under the License.
 #pragma once
 
+typedef int(STDMETHODCALLTYPE ProxyEngineInject)(LPCWSTR functionName, INT_PTR * fnPtr);
 typedef CK_RV(STDMETHODCALLTYPE EngineInitialize)(CK_VOID_PTR pInitArgs);
 typedef CK_RV(STDMETHODCALLTYPE EngineFinalize)(CK_VOID_PTR pReserved);
 typedef CK_RV(STDMETHODCALLTYPE EngineGetInfo)(CK_INFO_PTR pInfo);

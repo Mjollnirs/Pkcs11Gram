@@ -23,9 +23,9 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine : IEngine
     {
-        public static Rv C_Initialize(IntPtr pInitArgs)
+        public Rv C_Initialize(IntPtr pInitArgs)
         {
             if (App.IsInitialized)
                 return Rv.CRYPTOKI_ALREADY_INITIALIZED;
@@ -44,7 +44,7 @@ namespace Pkcs11Gram.Loader.EntryPoint
             return Rv.OK;
         }
 
-        public static Rv C_Finalize(IntPtr pReserved)
+        public Rv C_Finalize(IntPtr pReserved)
         {
             if (!App.IsInitialized)
                 return Rv.CRYPTOKI_NOT_INITIALIZED;
@@ -54,7 +54,7 @@ namespace Pkcs11Gram.Loader.EntryPoint
             return Rv.OK;
         }
 
-        public static Rv C_GetInfo(ref Info pInfo)
+        public Rv C_GetInfo(ref Info pInfo)
         {
             if (!App.IsInitialized)
                 return Rv.CRYPTOKI_NOT_INITIALIZED;
@@ -67,12 +67,12 @@ namespace Pkcs11Gram.Loader.EntryPoint
             return Rv.OK;
         }
 
-        public static Rv C_GetFunctionList(ref FunctionList functionList)
+        public Rv C_GetFunctionList(ref FunctionList functionList)
         {
             if (App == null)
                 return Rv.DEVICE_ERROR;
 
-            ((App)App).FunctionList = functionList;
+            App.FunctionList = functionList;
 
             return Rv.OK;
         }

@@ -23,9 +23,9 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_OpenSession(UInt32 slotID, SlotFlags flags, IntPtr pApplication, Notify Notify, IntPtr phSession)
+        public Rv C_OpenSession(UInt32 slotID, SlotFlags flags, IntPtr pApplication, Notify Notify, IntPtr phSession)
         {
             if (phSession == IntPtr.Zero)
                 return Rv.ARGUMENTS_BAD;
@@ -44,37 +44,37 @@ namespace Pkcs11Gram.Loader.EntryPoint
             return Rv.OK;
         }
 
-        public static Rv C_CloseSession(UInt32 hSession)
+        public Rv C_CloseSession(UInt32 hSession)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_CloseAllSessions(UInt32 slotID)
+        public Rv C_CloseAllSessions(UInt32 slotID)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_GetSessionInfo(UInt32 hSession, ref SessionInfo pInfo)
+        public Rv C_GetSessionInfo(UInt32 hSession, ref SessionInfo pInfo)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_GetOperationState(UInt32 hSession, IntPtr pOperationState, ref UInt32 pulOperationStateLen)
+        public Rv C_GetOperationState(UInt32 hSession, IntPtr pOperationState, ref UInt32 pulOperationStateLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_SetOperationState(UInt32 hSession, IntPtr pOperationState, UInt32 ulOperationStateLen, UInt32 hEncryptionKey, UInt32 hAuthenticationKey)
+        public Rv C_SetOperationState(UInt32 hSession, IntPtr pOperationState, UInt32 ulOperationStateLen, UInt32 hEncryptionKey, UInt32 hAuthenticationKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_Login(UInt32 hSession, UserType userType, IntPtr pPin, UInt32 ulPinLen)
+        public Rv C_Login(UInt32 hSession, UserType userType, IntPtr pPin, UInt32 ulPinLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_Logout(UInt32 hSession)
+        public Rv C_Logout(UInt32 hSession)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

@@ -21,14 +21,14 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_GetFunctionStatus(UInt32 hSession)
+        public Rv C_GetFunctionStatus(UInt32 hSession)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_CancelFunction(UInt32 hSession)
+        public Rv C_CancelFunction(UInt32 hSession)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

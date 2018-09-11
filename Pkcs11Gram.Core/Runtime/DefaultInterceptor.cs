@@ -25,7 +25,7 @@ namespace Pkcs11Gram.Core.Runtime
 {
     public class DefaultInterceptor : InterceptorBase
     {
-        public DefaultInterceptor(IKernel _kernel) : base(_kernel)
+        public DefaultInterceptor(IKernel _kernel, ILogger _logger) : base(_kernel, _logger)
         {
         }
 

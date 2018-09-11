@@ -20,7 +20,7 @@ using System.Text;
 
 namespace Pkcs11Gram.Core.Dependency
 {
-    public interface ISingleton
+    internal interface ISingleton
     {
     }
 }

@@ -103,8 +103,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Initialize)(CK_VOID_PTR pInitArgs)
 {
     CheckRuntime();
     EngineInitialize *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_Initialize",
         (INT_PTR*)&pfnDelegate
     );
@@ -119,8 +118,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Finalize)(CK_VOID_PTR pReserved)
 {
     CheckRuntime();
     EngineFinalize *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_Finalize",
         (INT_PTR*)&pfnDelegate
     );
@@ -135,8 +133,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetInfo)(CK_INFO_PTR pInfo)
 {
     CheckRuntime();
     EngineGetInfo *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetInfo",
         (INT_PTR*)&pfnDelegate
     );
@@ -156,9 +153,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetFunctionList)(CK_FUNCTION_LIST_PTR_PTR ppFunction
     *ppFunctionList = &function_list;
 
     EngineGetFunctionList *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
-        L"C_GetFunctionList",
+    runtime->ProxyInject(L"C_GetFunctionList",
         (INT_PTR*)&pfnDelegate
     );
 
@@ -172,8 +167,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetSlotList)(CK_BBOOL tokenPresent, CK_SLOT_ID_PTR p
 {
     CheckRuntime();
     EngineGetSlotList *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetSlotList",
         (INT_PTR*)&pfnDelegate
     );
@@ -188,8 +182,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetSlotInfo)(CK_SLOT_ID slotID, CK_SLOT_INFO_PTR pIn
 {
     CheckRuntime();
     EngineGetSlotInfo *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetSlotInfo",
         (INT_PTR*)&pfnDelegate
     );
@@ -204,8 +197,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetTokenInfo)(CK_SLOT_ID slotID, CK_TOKEN_INFO_PTR p
 {
     CheckRuntime();
     EngineGetTokenInfo *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetTokenInfo",
         (INT_PTR*)&pfnDelegate
     );
@@ -220,8 +212,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetMechanismList)(CK_SLOT_ID slotID, CK_MECHANISM_TY
 {
     CheckRuntime();
     EngineGetMechanismList *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetMechanismList",
         (INT_PTR*)&pfnDelegate
     );
@@ -236,8 +227,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetMechanismInfo)(CK_SLOT_ID slotID, CK_MECHANISM_TY
 {
     CheckRuntime();
     EngineGetMechanismInfo *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetMechanismInfo",
         (INT_PTR*)&pfnDelegate
     );
@@ -252,8 +242,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_InitToken)(CK_SLOT_ID slotID, CK_UTF8CHAR_PTR pPin, 
 {
     CheckRuntime();
     EngineInitToken *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_InitToken",
         (INT_PTR*)&pfnDelegate
     );
@@ -268,8 +257,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_InitPIN)(CK_SESSION_HANDLE hSession, CK_UTF8CHAR_PTR
 {
     CheckRuntime();
     EngineInitPIN *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_InitPIN",
         (INT_PTR*)&pfnDelegate
     );
@@ -284,8 +272,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SetPIN)(CK_SESSION_HANDLE hSession, CK_UTF8CHAR_PTR 
 {
     CheckRuntime();
     EngineSetPIN *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SetPIN",
         (INT_PTR*)&pfnDelegate
     );
@@ -300,8 +287,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_OpenSession)(CK_SLOT_ID slotID, CK_FLAGS flags, CK_V
 {
     CheckRuntime();
     EngineOpenSession *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_OpenSession",
         (INT_PTR*)&pfnDelegate
     );
@@ -316,8 +302,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_CloseSession)(CK_SESSION_HANDLE hSession)
 {
     CheckRuntime();
     EngineCloseSession *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_CloseSession",
         (INT_PTR*)&pfnDelegate
     );
@@ -332,8 +317,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_CloseAllSessions)(CK_SLOT_ID slotID)
 {
     CheckRuntime();
     EngineCloseAllSessions *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_CloseAllSessions",
         (INT_PTR*)&pfnDelegate
     );
@@ -349,8 +333,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetSessionInfo)(CK_SESSION_HANDLE hSession, CK_SESSI
 {
     CheckRuntime();
     EngineGetSessionInfo *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetSessionInfo",
         (INT_PTR*)&pfnDelegate
     );
@@ -367,8 +350,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetOperationState)(CK_SESSION_HANDLE hSession, CK_BY
     CheckRuntime();
     CheckRuntime();
     EngineGetOperationState *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetOperationState",
         (INT_PTR*)&pfnDelegate
     );
@@ -384,8 +366,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SetOperationState)(CK_SESSION_HANDLE hSession, CK_BY
 {
     CheckRuntime();
     EngineSetOperationState *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SetOperationState",
         (INT_PTR*)&pfnDelegate
     );
@@ -401,8 +382,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Login)(CK_SESSION_HANDLE hSession, CK_USER_TYPE user
 {
     CheckRuntime();
     EngineLogin *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_Login",
         (INT_PTR*)&pfnDelegate
     );
@@ -418,8 +398,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Logout)(CK_SESSION_HANDLE hSession)
 {
     CheckRuntime();
     EngineLogout *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_Logout",
         (INT_PTR*)&pfnDelegate
     );
@@ -435,8 +414,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_CreateObject)(CK_SESSION_HANDLE hSession, CK_ATTRIBU
 {
     CheckRuntime();
     EngineCreateObject *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_CreateObject",
         (INT_PTR*)&pfnDelegate
     );
@@ -452,8 +430,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_CopyObject)(CK_SESSION_HANDLE hSession, CK_OBJECT_HA
 {
     CheckRuntime();
     EngineCopyObject *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_CopyObject",
         (INT_PTR*)&pfnDelegate
     );
@@ -469,8 +446,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DestroyObject)(CK_SESSION_HANDLE hSession, CK_OBJECT
 {
     CheckRuntime();
     EngineDestroyObject *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DestroyObject",
         (INT_PTR*)&pfnDelegate
     );
@@ -486,8 +462,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetObjectSize)(CK_SESSION_HANDLE hSession, CK_OBJECT
 {
     CheckRuntime();
     EngineGetObjectSize *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetObjectSize",
         (INT_PTR*)&pfnDelegate
     );
@@ -503,8 +478,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetAttributeValue)(CK_SESSION_HANDLE hSession, CK_OB
 {
     CheckRuntime();
     EngineGetAttributeValue *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetAttributeValue",
         (INT_PTR*)&pfnDelegate
     );
@@ -520,8 +494,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SetAttributeValue)(CK_SESSION_HANDLE hSession, CK_OB
 {
     CheckRuntime();
     EngineSetAttributeValue *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SetAttributeValue",
         (INT_PTR*)&pfnDelegate
     );
@@ -537,8 +510,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_FindObjectsInit)(CK_SESSION_HANDLE hSession, CK_ATTR
 {
     CheckRuntime();
     EngineFindObjectsInit *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_FindObjectsInit",
         (INT_PTR*)&pfnDelegate
     );
@@ -554,8 +526,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_FindObjects)(CK_SESSION_HANDLE hSession, CK_OBJECT_H
 {
     CheckRuntime();
     EngineFindObjects *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_FindObjects",
         (INT_PTR*)&pfnDelegate
     );
@@ -571,8 +542,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_FindObjectsFinal)(CK_SESSION_HANDLE hSession)
 {
     CheckRuntime();
     EngineFindObjectsFinal *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_FindObjectsFinal",
         (INT_PTR*)&pfnDelegate
     );
@@ -588,8 +558,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_EncryptInit)(CK_SESSION_HANDLE hSession, CK_MECHANIS
 {
     CheckRuntime();
     EngineEncryptInit *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_EncryptInit",
         (INT_PTR*)&pfnDelegate
     );
@@ -605,8 +574,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Encrypt)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR pDa
 {
     CheckRuntime();
     EngineEncrypt *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_Encrypt",
         (INT_PTR*)&pfnDelegate
     );
@@ -622,8 +590,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_EncryptUpdate)(CK_SESSION_HANDLE hSession, CK_BYTE_P
 {
     CheckRuntime();
     EngineEncryptUpdate *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_EncryptUpdate",
         (INT_PTR*)&pfnDelegate
     );
@@ -639,8 +606,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_EncryptFinal)(CK_SESSION_HANDLE hSession, CK_BYTE_PT
 {
     CheckRuntime();
     EngineEncryptFinal *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_EncryptFinal",
         (INT_PTR*)&pfnDelegate
     );
@@ -656,8 +622,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DecryptInit)(CK_SESSION_HANDLE hSession, CK_MECHANIS
 {
     CheckRuntime();
     EngineDecryptInit *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DecryptInit",
         (INT_PTR*)&pfnDelegate
     );
@@ -673,8 +638,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Decrypt)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR pEn
 {
     CheckRuntime();
     EngineDecrypt *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_Decrypt",
         (INT_PTR*)&pfnDelegate
     );
@@ -690,8 +654,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DecryptUpdate)(CK_SESSION_HANDLE hSession, CK_BYTE_P
 {
     CheckRuntime();
     EngineDecryptUpdate *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DecryptUpdate",
         (INT_PTR*)&pfnDelegate
     );
@@ -707,8 +670,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DecryptFinal)(CK_SESSION_HANDLE hSession, CK_BYTE_PT
 {
     CheckRuntime();
     EngineDecryptFinal *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DecryptFinal",
         (INT_PTR*)&pfnDelegate
     );
@@ -724,8 +686,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DigestInit)(CK_SESSION_HANDLE hSession, CK_MECHANISM
 {
     CheckRuntime();
     EngineDigestInit *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DigestInit",
         (INT_PTR*)&pfnDelegate
     );
@@ -741,8 +702,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Digest)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR pDat
 {
     CheckRuntime();
     EngineDigest *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_Digest",
         (INT_PTR*)&pfnDelegate
     );
@@ -758,8 +718,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DigestUpdate)(CK_SESSION_HANDLE hSession, CK_BYTE_PT
 {
     CheckRuntime();
     EngineDigestUpdate *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DigestUpdate",
         (INT_PTR*)&pfnDelegate
     );
@@ -775,8 +734,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DigestKey)(CK_SESSION_HANDLE hSession, CK_OBJECT_HAN
 {
     CheckRuntime();
     EngineDigestKey *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DigestKey",
         (INT_PTR*)&pfnDelegate
     );
@@ -792,8 +750,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DigestFinal)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR
 {
     CheckRuntime();
     EngineDigestFinal *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DigestFinal",
         (INT_PTR*)&pfnDelegate
     );
@@ -809,8 +766,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SignInit)(CK_SESSION_HANDLE hSession, CK_MECHANISM_P
 {
     CheckRuntime();
     EngineSignInit *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SignInit",
         (INT_PTR*)&pfnDelegate
     );
@@ -826,8 +782,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Sign)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR pData,
 {
     CheckRuntime();
     EngineSign *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_Sign",
         (INT_PTR*)&pfnDelegate
     );
@@ -843,8 +798,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SignUpdate)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR 
 {
     CheckRuntime();
     EngineSignUpdate *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SignUpdate",
         (INT_PTR*)&pfnDelegate
     );
@@ -860,8 +814,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SignFinal)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR p
 {
     CheckRuntime();
     EngineSignFinal *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SignFinal",
         (INT_PTR*)&pfnDelegate
     );
@@ -877,8 +830,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SignRecoverInit)(CK_SESSION_HANDLE hSession, CK_MECH
 {
     CheckRuntime();
     EngineSignRecoverInit *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SignRecoverInit",
         (INT_PTR*)&pfnDelegate
     );
@@ -894,8 +846,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SignRecover)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR
 {
     CheckRuntime();
     EngineSignRecover *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SignRecover",
         (INT_PTR*)&pfnDelegate
     );
@@ -911,8 +862,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_VerifyInit)(CK_SESSION_HANDLE hSession, CK_MECHANISM
 {
     CheckRuntime();
     EngineVerifyInit *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_VerifyInit",
         (INT_PTR*)&pfnDelegate
     );
@@ -928,8 +878,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_Verify)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR pDat
 {
     CheckRuntime();
     EngineVerify *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_Verify",
         (INT_PTR*)&pfnDelegate
     );
@@ -945,8 +894,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_VerifyUpdate)(CK_SESSION_HANDLE hSession, CK_BYTE_PT
 {
     CheckRuntime();
     EngineVerifyUpdate *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_VerifyUpdate",
         (INT_PTR*)&pfnDelegate
     );
@@ -962,8 +910,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_VerifyFinal)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR
 {
     CheckRuntime();
     EngineVerifyFinal *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_VerifyFinal",
         (INT_PTR*)&pfnDelegate
     );
@@ -979,8 +926,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_VerifyRecoverInit)(CK_SESSION_HANDLE hSession, CK_ME
 {
     CheckRuntime();
     EngineVerifyRecoverInit *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_VerifyRecoverInit",
         (INT_PTR*)&pfnDelegate
     );
@@ -996,8 +942,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_VerifyRecover)(CK_SESSION_HANDLE hSession, CK_BYTE_P
 {
     CheckRuntime();
     EngineVerifyRecover *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_VerifyRecover",
         (INT_PTR*)&pfnDelegate
     );
@@ -1013,8 +958,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DigestEncryptUpdate)(CK_SESSION_HANDLE hSession, CK_
 {
     CheckRuntime();
     EngineDigestEncryptUpdate *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DigestEncryptUpdate",
         (INT_PTR*)&pfnDelegate
     );
@@ -1030,8 +974,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DecryptDigestUpdate)(CK_SESSION_HANDLE hSession, CK_
 {
     CheckRuntime();
     EngineDecryptDigestUpdate *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DecryptDigestUpdate",
         (INT_PTR*)&pfnDelegate
     );
@@ -1047,8 +990,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SignEncryptUpdate)(CK_SESSION_HANDLE hSession, CK_BY
 {
     CheckRuntime();
     EngineSignEncryptUpdate *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SignEncryptUpdate",
         (INT_PTR*)&pfnDelegate
     );
@@ -1064,8 +1006,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DecryptVerifyUpdate)(CK_SESSION_HANDLE hSession, CK_
 {
     CheckRuntime();
     EngineDecryptVerifyUpdate *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DecryptVerifyUpdate",
         (INT_PTR*)&pfnDelegate
     );
@@ -1081,8 +1022,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GenerateKey)(CK_SESSION_HANDLE hSession, CK_MECHANIS
 {
     CheckRuntime();
     EngineGenerateKey *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GenerateKey",
         (INT_PTR*)&pfnDelegate
     );
@@ -1098,8 +1038,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GenerateKeyPair)(CK_SESSION_HANDLE hSession, CK_MECH
 {
     CheckRuntime();
     EngineGenerateKeyPair *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GenerateKeyPair",
         (INT_PTR*)&pfnDelegate
     );
@@ -1115,8 +1054,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_WrapKey)(CK_SESSION_HANDLE hSession, CK_MECHANISM_PT
 {
     CheckRuntime();
     EngineWrapKey *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_WrapKey",
         (INT_PTR*)&pfnDelegate
     );
@@ -1132,8 +1070,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_UnwrapKey)(CK_SESSION_HANDLE hSession, CK_MECHANISM_
 {
     CheckRuntime();
     EngineUnwrapKey *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_UnwrapKey",
         (INT_PTR*)&pfnDelegate
     );
@@ -1149,8 +1086,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_DeriveKey)(CK_SESSION_HANDLE hSession, CK_MECHANISM_
 {
     CheckRuntime();
     EngineDeriveKey *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_DeriveKey",
         (INT_PTR*)&pfnDelegate
     );
@@ -1166,8 +1102,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_SeedRandom)(CK_SESSION_HANDLE hSession, CK_BYTE_PTR 
 {
     CheckRuntime();
     EngineSeedRandom *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_SeedRandom",
         (INT_PTR*)&pfnDelegate
     );
@@ -1183,8 +1118,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GenerateRandom)(CK_SESSION_HANDLE hSession, CK_BYTE_
 {
     CheckRuntime();
     EngineGenerateRandom *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GenerateRandom",
         (INT_PTR*)&pfnDelegate
     );
@@ -1200,8 +1134,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_GetFunctionStatus)(CK_SESSION_HANDLE hSession)
 {
     CheckRuntime();
     EngineGetFunctionStatus *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_GetFunctionStatus",
         (INT_PTR*)&pfnDelegate
     );
@@ -1217,8 +1150,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_CancelFunction)(CK_SESSION_HANDLE hSession)
 {
     CheckRuntime();
     EngineCancelFunction *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_CancelFunction",
         (INT_PTR*)&pfnDelegate
     );
@@ -1234,8 +1166,7 @@ CK_DEFINE_FUNCTION(CK_RV, C_WaitForSlotEvent)(CK_FLAGS flags, CK_SLOT_ID_PTR pSl
 {
     CheckRuntime();
     EngineWaitForSlotEvent *pfnDelegate = NULL;
-    runtime->CreateDelegate(
-        L"Engine",
+    runtime->ProxyInject(
         L"C_WaitForSlotEvent",
         (INT_PTR*)&pfnDelegate
     );

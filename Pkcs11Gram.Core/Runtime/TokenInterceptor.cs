@@ -23,9 +23,9 @@ using Castle.MicroKernel;
 
 namespace Pkcs11Gram.Core.Runtime
 {
-    internal sealed class TokenInterceptor : InterceptorBase
+    public sealed class TokenInterceptor : InterceptorBase
     {
-        public TokenInterceptor(IKernel _kernel) : base(_kernel)
+        public TokenInterceptor(IKernel _kernel, ILogger _logger) : base(_kernel, _logger)
         {
         }
 

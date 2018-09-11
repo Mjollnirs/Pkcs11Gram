@@ -24,9 +24,9 @@ using System.Threading.Tasks;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        private static ISlot GetSlot(UInt32 slotID)
+        private ISlot GetSlot(UInt32 slotID)
         {
             if (!App.Slots.ContainsKey(slotID))
                 throw new Pkcs11Exception("Get slot faild!", Rv.SLOT_ID_INVALID);
@@ -34,7 +34,7 @@ namespace Pkcs11Gram.Loader.EntryPoint
             return App.Slots[slotID];
         }
 
-        private static IToken GetToken(UInt32 slotID)
+        private IToken GetToken(UInt32 slotID)
         {
             ISlot slot = GetSlot(slotID);
 

@@ -21,14 +21,14 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_SeedRandom(UInt32 hSession, IntPtr pSeed, UInt32 ulSeedLen)
+        public Rv C_SeedRandom(UInt32 hSession, IntPtr pSeed, UInt32 ulSeedLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_GenerateRandom(UInt32 hSession, IntPtr RandomData, UInt32 ulRandomLen)
+        public Rv C_GenerateRandom(UInt32 hSession, IntPtr RandomData, UInt32 ulRandomLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

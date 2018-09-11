@@ -21,24 +21,24 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_EncryptInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
+        public Rv C_EncryptInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_Encrypt(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pEncryptedData, ref UInt32 pulEncryptedDataLen)
+        public Rv C_Encrypt(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pEncryptedData, ref UInt32 pulEncryptedDataLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_EncryptUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen, IntPtr pEncryptedPart, ref UInt32 pulEncryptedPartLen)
+        public Rv C_EncryptUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen, IntPtr pEncryptedPart, ref UInt32 pulEncryptedPartLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_EncryptFinal(UInt32 hSession, IntPtr pLastEncryptedPart, ref UInt32 pulLastEncryptedPartLen)
+        public Rv C_EncryptFinal(UInt32 hSession, IntPtr pLastEncryptedPart, ref UInt32 pulLastEncryptedPartLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

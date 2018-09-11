@@ -1,5 +1,5 @@
-﻿// Project: Pkcs11Gram.TokenProvider.Mock
-// File: MockProvider.cs
+﻿// Project: Pkcs11Gram.Core
+// File: SessionInterceptor.cs
 // 
 // Copyright 2018 Mjollnir<mjollnir@59k.org>
 // 
@@ -14,26 +14,24 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-using Castle.MicroKernel;
-using Pkcs11Gram.Core;
-using Pkcs11Gram.Core.Slot;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Castle.Core.Logging;
+using Castle.DynamicProxy;
+using Castle.MicroKernel;
 
-namespace Pkcs11Gram.TokenProvider.Mock
+namespace Pkcs11Gram.Core.Runtime
 {
-    public class MockProvider : ProviderBase<Slot, Token, Session>
+    public sealed class SessionInterceptor : InterceptorBase
     {
-        public MockProvider(IKernel _kernel) : base(_kernel)
+        public SessionInterceptor(IKernel _kernel, ILogger _logger) : base(_kernel, _logger)
         {
         }
 
-        protected override async Task ProcessSlots()
+        public override void Intercept(IInvocation invocation)
         {
-            await AddSlotAsync();
+            base.Intercept(invocation);
         }
     }
 }

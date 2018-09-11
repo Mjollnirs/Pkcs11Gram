@@ -20,9 +20,9 @@ using Castle.MicroKernel;
 
 namespace Pkcs11Gram.Core.Runtime
 {
-    internal sealed class ProviderInterceptor : InterceptorBase
+    public sealed class ProviderInterceptor : InterceptorBase
     {
-        public ProviderInterceptor(IKernel _kernel) : base(_kernel)
+        public ProviderInterceptor(IKernel _kernel, ILogger _logger) : base(_kernel, _logger)
         {
         }
 

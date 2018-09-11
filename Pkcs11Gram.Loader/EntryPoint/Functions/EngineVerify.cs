@@ -21,34 +21,34 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_VerifyInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
+        public Rv C_VerifyInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_Verify(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pSignature, UInt32 ulSignatureLen)
+        public Rv C_Verify(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pSignature, UInt32 ulSignatureLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_VerifyUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen)
+        public Rv C_VerifyUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_VerifyFinal(UInt32 hSession, IntPtr pSignature, UInt32 ulSignatureLen)
+        public Rv C_VerifyFinal(UInt32 hSession, IntPtr pSignature, UInt32 ulSignatureLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_VerifyRecoverInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
+        public Rv C_VerifyRecoverInit(UInt32 hSession, ref Mechanism pMechanism, UInt32 hKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_VerifyRecover(UInt32 hSession, IntPtr pSignature, UInt32 ulSignatureLen, IntPtr pData, ref UInt32 pulDataLen)
+        public Rv C_VerifyRecover(UInt32 hSession, IntPtr pSignature, UInt32 ulSignatureLen, IntPtr pData, ref UInt32 pulDataLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

@@ -26,10 +26,11 @@ using System.Text;
 
 namespace Pkcs11Gram.Core
 {
-    public abstract class SlotInstallerBase<TProvider, TSlot, TToken> : InstallerBase
-        where TProvider : ProviderBase<TSlot, TToken> ,IProvider
+    public abstract class SlotInstallerBase<TProvider, TSlot, TToken, TSession> : InstallerBase
+        where TProvider : ProviderBase<TSlot, TToken, TSession> ,IProvider
         where TSlot: class, ISlot
         where TToken: class, IToken
+        where TSession: class, ISession
     {
         private IWindsorContainer Container;
 
@@ -49,6 +50,11 @@ namespace Pkcs11Gram.Core
             Container.Register(Component.For<TToken>()
                 .ImplementedBy<TToken>()
                 .Interceptors<TokenInterceptor>()
+                .LifestyleTransient());
+
+            Container.Register(Component.For<TSession>()
+                .ImplementedBy<TSession>()
+                .Interceptors<SessionInterceptor>()
                 .LifestyleTransient());
 
             container.Register(Component.For<IProvider>()

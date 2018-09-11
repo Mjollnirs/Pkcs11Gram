@@ -21,29 +21,29 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_DigestInit(UInt32 hSession, ref Mechanism pMechanism)
+        public Rv C_DigestInit(UInt32 hSession, ref Mechanism pMechanism)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_Digest(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pDigest, ref UInt32 pulDigestLen)
+        public Rv C_Digest(UInt32 hSession, IntPtr pData, UInt32 ulDataLen, IntPtr pDigest, ref UInt32 pulDigestLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_DigestUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen)
+        public Rv C_DigestUpdate(UInt32 hSession, IntPtr pPart, UInt32 ulPartLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_DigestKey(UInt32 hSession, UInt32 hKey)
+        public Rv C_DigestKey(UInt32 hSession, UInt32 hKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_DigestFinal(UInt32 hSession, IntPtr pDigest, ref UInt32 pulDigestLen)
+        public Rv C_DigestFinal(UInt32 hSession, IntPtr pDigest, ref UInt32 pulDigestLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

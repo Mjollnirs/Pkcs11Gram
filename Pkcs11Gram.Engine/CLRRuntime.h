@@ -23,6 +23,7 @@ public:
     CLRRuntime();
     ~CLRRuntime();
     void CreateDelegate(LPCWSTR className, LPCWSTR methodName, INT_PTR *fnPtr);
+    void ProxyInject(LPCWSTR functionName, INT_PTR *fnPtr);
 private:
     DWORD domainId = NULL;
     DWORD exitCode = 999;

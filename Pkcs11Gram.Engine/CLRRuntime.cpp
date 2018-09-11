@@ -18,7 +18,7 @@
 
 CLRRuntime::CLRRuntime()
 {
-    this->coreCLRModule = LoadLibraryEx(this->GetCoreLibrary(), NULL, 0);
+    this->coreCLRModule = LoadLibrary(this->GetCoreLibrary());
 
     FnGetCLRRuntimeHost pfnGetCLRRuntimeHost =
         (FnGetCLRRuntimeHost)::GetProcAddress(coreCLRModule, "GetCLRRuntimeHost");
@@ -51,9 +51,9 @@ CLRRuntime::~CLRRuntime()
 
 void CLRRuntime::CreateDelegate(LPCWSTR className, LPCWSTR methodName, INT_PTR *fnPtr)
 {
-    wchar_t entryClass[1024];
-    wcscpy_s(entryClass, 1024, L"Pkcs11Gram.Loader.EntryPoint.");
-    wcscat_s(entryClass, 1024, className);
+    wchar_t entryClass[2048];
+    wcscpy_s(entryClass, 2048, L"Pkcs11Gram.Loader.EntryPoint.");
+    wcscat_s(entryClass, 2048, className);
 
     this->RuntimeHost->CreateDelegate(
         this->domainId,
@@ -62,6 +62,18 @@ void CLRRuntime::CreateDelegate(LPCWSTR className, LPCWSTR methodName, INT_PTR *
         methodName,
         fnPtr
     );
+}
+
+void CLRRuntime::ProxyInject(LPCWSTR functionName, INT_PTR * fnPtr)
+{
+    ProxyEngineInject *pfnDelegate = NULL;
+    this->CreateDelegate(
+        L"Proxy",
+        L"Inject",
+        (INT_PTR *)&pfnDelegate
+    );
+    
+    pfnDelegate(functionName, fnPtr);
 }
 
 wchar_t* CLRRuntime::GetCoreLibraryPath()
@@ -110,7 +122,7 @@ wchar_t* CLRRuntime::GetBasePath()
     return result;
 }
 
-DWORD WINAPI CLRRuntime::ExecuteAssembly()
+DWORD CLRRuntime::ExecuteAssembly()
 {
     wchar_t* targetApp = this->GetAppLibrary();
     wchar_t* targetAppPath = this->GetCoreLibraryPath();

@@ -21,49 +21,49 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_CreateObject(UInt32 hSession, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount, ref UInt32 phObject)
+        public Rv C_CreateObject(UInt32 hSession, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount, ref UInt32 phObject)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_CopyObject(UInt32 hSession, UInt32 hObject, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount, ref UInt32 phNewObject)
+        public Rv C_CopyObject(UInt32 hSession, UInt32 hObject, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount, ref UInt32 phNewObject)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_DestroyObject(UInt32 hSession, UInt32 hObject)
+        public Rv C_DestroyObject(UInt32 hSession, UInt32 hObject)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_GetObjectSize(UInt32 hSession, UInt32 hObject, ref UInt32 pulSize)
+        public Rv C_GetObjectSize(UInt32 hSession, UInt32 hObject, ref UInt32 pulSize)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_GetAttributeValue(UInt32 hSession, UInt32 hObject, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount)
+        public Rv C_GetAttributeValue(UInt32 hSession, UInt32 hObject, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_SetAttributeValue(UInt32 hSession, UInt32 hObject, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount)
+        public Rv C_SetAttributeValue(UInt32 hSession, UInt32 hObject, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_FindObjectsInit(UInt32 hSession, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount)
+        public Rv C_FindObjectsInit(UInt32 hSession, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_FindObjects(UInt32 hSession, ref UInt32 phObject, UInt32 ulMaxObjectCount, ref UInt32 pulObjectCount)
+        public Rv C_FindObjects(UInt32 hSession, ref UInt32 phObject, UInt32 ulMaxObjectCount, ref UInt32 pulObjectCount)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_FindObjectsFinal(UInt32 hSession)
+        public Rv C_FindObjectsFinal(UInt32 hSession)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

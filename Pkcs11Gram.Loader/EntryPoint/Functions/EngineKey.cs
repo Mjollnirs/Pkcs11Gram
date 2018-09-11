@@ -21,29 +21,29 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_GenerateKey(UInt32 hSession, ref Mechanism pMechanism, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount, ref UInt32 phKey)
+        public Rv C_GenerateKey(UInt32 hSession, ref Mechanism pMechanism, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulCount, ref UInt32 phKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_GenerateKeyPair(UInt32 hSession, ref Mechanism pMechanism, ref Core.Pkcs11.Attribute pPublicKeyTemplate, UInt32 ulPublicKeyAttributeCount, ref Core.Pkcs11.Attribute pPrivateKeyTemplate, UInt32 ulPrivateKeyAttributeCount, ref UInt32 phPublicKey, ref UInt32 phPrivateKey)
+        public Rv C_GenerateKeyPair(UInt32 hSession, ref Mechanism pMechanism, ref Core.Pkcs11.Attribute pPublicKeyTemplate, UInt32 ulPublicKeyAttributeCount, ref Core.Pkcs11.Attribute pPrivateKeyTemplate, UInt32 ulPrivateKeyAttributeCount, ref UInt32 phPublicKey, ref UInt32 phPrivateKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_WrapKey(UInt32 hSession, ref Mechanism pMechanism, UInt32 hWrappingKey, UInt32 hKey, IntPtr pWrappedKey, ref UInt32 pulWrappedKeyLen)
+        public Rv C_WrapKey(UInt32 hSession, ref Mechanism pMechanism, UInt32 hWrappingKey, UInt32 hKey, IntPtr pWrappedKey, ref UInt32 pulWrappedKeyLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_UnwrapKey(UInt32 hSession, ref Mechanism pMechanism, UInt32 hUnwrappingKey, IntPtr pWrappedKey, UInt32 ulWrappedKeyLen, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulAttributeCount, ref UInt32 phKey)
+        public Rv C_UnwrapKey(UInt32 hSession, ref Mechanism pMechanism, UInt32 hUnwrappingKey, IntPtr pWrappedKey, UInt32 ulWrappedKeyLen, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulAttributeCount, ref UInt32 phKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_DeriveKey(UInt32 hSession, ref Mechanism pMechanism, UInt32 hBaseKey, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulAttributeCount, ref UInt32 phKey)
+        public Rv C_DeriveKey(UInt32 hSession, ref Mechanism pMechanism, UInt32 hBaseKey, ref Core.Pkcs11.Attribute pTemplate, UInt32 ulAttributeCount, ref UInt32 phKey)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }

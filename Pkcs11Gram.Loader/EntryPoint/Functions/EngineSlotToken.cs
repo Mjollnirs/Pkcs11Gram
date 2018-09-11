@@ -25,9 +25,9 @@ using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
-    public static partial class Engine
+    internal partial class Engine
     {
-        public static Rv C_GetSlotList(byte tokenPresent, IntPtr pSlotList, IntPtr pulCount)
+        public Rv C_GetSlotList(byte tokenPresent, IntPtr pSlotList, IntPtr pulCount)
         {
             if (!App.IsInitialized)
                 return Rv.CRYPTOKI_NOT_INITIALIZED;
@@ -61,70 +61,56 @@ namespace Pkcs11Gram.Loader.EntryPoint
             return Rv.OK;
         }
 
-        public static Rv C_GetSlotInfo(UInt32 slotID, ref SlotInfo pInfo)
+        public Rv C_GetSlotInfo(UInt32 slotID, ref SlotInfo pInfo)
         {
             if (!App.IsInitialized)
                 return Rv.CRYPTOKI_NOT_INITIALIZED;
 
-            try
-            {
-                ISlot slot = GetSlot(slotID);
+            ISlot slot = GetSlot(slotID);
 
-                pInfo = slot.GetSlotInfo().Result;
-            }
-            catch (Pkcs11Exception ex)
-            {
-                return ex.Pkcs11Rv;
-            }
+            pInfo = slot.GetSlotInfo().Result;
 
             return Rv.OK;
         }
 
-        public static Rv C_GetTokenInfo(UInt32 slotID, ref TokenInfo pInfo)
+        public Rv C_GetTokenInfo(UInt32 slotID, ref TokenInfo pInfo)
         {
             if (!App.IsInitialized)
                 return Rv.CRYPTOKI_NOT_INITIALIZED;
 
-            try
-            {
-                IToken token = GetToken(slotID);
+            IToken token = GetToken(slotID);
 
-                pInfo = token.GetTokenInfo().Result;
-            }
-            catch (Pkcs11Exception ex)
-            {
-                return ex.Pkcs11Rv;
-            }
+            pInfo = token.GetTokenInfo().Result;
 
             return Rv.OK;
         }
 
-        public static Rv C_WaitForSlotEvent(SlotFlags flags, ref UInt32 pSlot, ref IntPtr pReserved)
+        public Rv C_WaitForSlotEvent(SlotFlags flags, ref UInt32 pSlot, ref IntPtr pReserved)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_GetMechanismList(UInt32 slotID, ref MechanismType pMechanismList, ref UInt32 pulCount)
+        public Rv C_GetMechanismList(UInt32 slotID, ref MechanismType pMechanismList, ref UInt32 pulCount)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_GetMechanismInfo(UInt32 slotID, MechanismType type, ref MechanismInfo pInfo)
+        public Rv C_GetMechanismInfo(UInt32 slotID, MechanismType type, ref MechanismInfo pInfo)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_InitToken(UInt32 slotID, IntPtr pPin, UInt32 ulPinLen, IntPtr pLabel)
+        public Rv C_InitToken(UInt32 slotID, IntPtr pPin, UInt32 ulPinLen, IntPtr pLabel)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_InitPIN(UInt32 hSession, IntPtr pPin, UInt32 ulPinLen)
+        public Rv C_InitPIN(UInt32 hSession, IntPtr pPin, UInt32 ulPinLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
 
-        public static Rv C_SetPIN(UInt32 hSession, IntPtr pOldPin, UInt32 ulOldLen, IntPtr pNewPin, UInt32 ulNewLen)
+        public Rv C_SetPIN(UInt32 hSession, IntPtr pOldPin, UInt32 ulOldLen, IntPtr pNewPin, UInt32 ulNewLen)
         {
             return Rv.FUNCTION_NOT_SUPPORTED;
         }
