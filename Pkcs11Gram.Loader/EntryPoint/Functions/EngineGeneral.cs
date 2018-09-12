@@ -33,10 +33,6 @@ namespace Pkcs11Gram.Loader.EntryPoint
             if (pInitArgs != IntPtr.Zero)
             {
                 InitializeArgs args = Marshal.PtrToStructure<InitializeArgs>(pInitArgs);
-                if (!args.Flags.HasFlag(InitializeFlags.OS_LOCKING_OK))
-                {
-                    return Rv.FUNCTION_FAILED;
-                }
             }
 
             App.Initialize().Wait();
