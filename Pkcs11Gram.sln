@@ -23,16 +23,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pkcs11Gram.Core", "Pkcs11Gr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pkcs11Gram.TokenProvider.Mock", "Pkcs11Gram.TokenProvider.Mock\Pkcs11Gram.TokenProvider.Mock.csproj", "{4BABD3B1-E781-4C88-8315-8FF26870E75A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{4F3EED75-B61C-4C18-B1A3-C96AA07B1D45}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pkcs11Gram.Pkcs11Test", "Pkcs11Gram.Pkcs11Test\Pkcs11Gram.Pkcs11Test.csproj", "{A8315788-DCC8-485B-8E62-A90495E4C478}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0FFDF601-5305-4B8A-885B-21001ECB4F54} = {0FFDF601-5305-4B8A-885B-21001ECB4F54}
-		{47011666-32D4-4BED-A3E6-447374300A9D} = {47011666-32D4-4BED-A3E6-447374300A9D}
-		{4BABD3B1-E781-4C88-8315-8FF26870E75A} = {4BABD3B1-E781-4C88-8315-8FF26870E75A}
-		{E6AD36E1-84C5-45D2-AD24-F2C4138B436C} = {E6AD36E1-84C5-45D2-AD24-F2C4138B436C}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -55,16 +45,9 @@ Global
 		{4BABD3B1-E781-4C88-8315-8FF26870E75A}.Debug|x64.Build.0 = Debug|Any CPU
 		{4BABD3B1-E781-4C88-8315-8FF26870E75A}.Release|x64.ActiveCfg = Release|Any CPU
 		{4BABD3B1-E781-4C88-8315-8FF26870E75A}.Release|x64.Build.0 = Release|Any CPU
-		{A8315788-DCC8-485B-8E62-A90495E4C478}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{A8315788-DCC8-485B-8E62-A90495E4C478}.Debug|x64.Build.0 = Debug|Any CPU
-		{A8315788-DCC8-485B-8E62-A90495E4C478}.Release|x64.ActiveCfg = Release|Any CPU
-		{A8315788-DCC8-485B-8E62-A90495E4C478}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{A8315788-DCC8-485B-8E62-A90495E4C478} = {4F3EED75-B61C-4C18-B1A3-C96AA07B1D45}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29B1162E-9C88-4F3D-AAA3-50F55C2FB77A}

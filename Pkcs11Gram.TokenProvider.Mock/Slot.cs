@@ -14,6 +14,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+using Castle.MicroKernel;
 using Pkcs11Gram.Core.Pkcs11;
 using Pkcs11Gram.Core.Slot;
 using System;
@@ -23,20 +24,21 @@ using System.Threading.Tasks;
 
 namespace Pkcs11Gram.TokenProvider.Mock
 {
-    public class Slot : SlotBase
+    public class Slot : SlotBase<Token, Session>
     {
-        public Slot()
-            : base("Pkcs11Gram Mock TokenProvider",
+        public Slot(IKernel kernel)
+            : base(kernel,
+                  "Pkcs11Gram Mock TokenProvider",
                   "Mjollnir<mjollnir@59k.org>")
         {
             IsRemoveable = true;
             HasToken = true;
         }
 
-        public async override Task<IToken> GetToken()
+        protected override async Task<IToken> ProcessToken(Token token)
         {
             await Task.Yield();
-            return new Token();
+            return token;
         }
     }
 }

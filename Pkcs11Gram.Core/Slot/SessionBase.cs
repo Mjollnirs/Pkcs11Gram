@@ -14,6 +14,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+using Castle.MicroKernel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,5 +23,10 @@ namespace Pkcs11Gram.Core.Slot
 {
     public abstract class SessionBase : ISession
     {
+        private readonly IKernel Kernel;
+        public SessionBase(IKernel kernel)
+        {
+            Kernel = kernel;
+        }
     }
 }

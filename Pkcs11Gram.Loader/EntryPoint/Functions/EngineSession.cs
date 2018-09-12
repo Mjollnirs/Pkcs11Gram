@@ -30,16 +30,9 @@ namespace Pkcs11Gram.Loader.EntryPoint
             if (phSession == IntPtr.Zero)
                 return Rv.ARGUMENTS_BAD;
 
-            try
-            {
-                IToken token = GetToken(slotID);
+            IToken token = GetToken(slotID);
 
-                token.OpenSession();
-            }
-            catch (Pkcs11Exception ex)
-            {
-                return ex.Pkcs11Rv;
-            }
+            token.OpenSession();
 
             return Rv.OK;
         }

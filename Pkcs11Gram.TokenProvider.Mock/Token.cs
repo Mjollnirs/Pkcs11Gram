@@ -14,6 +14,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+using Castle.MicroKernel;
 using Pkcs11Gram.Core.Slot;
 using System;
 using System.Collections.Generic;
@@ -22,16 +23,17 @@ using System.Threading.Tasks;
 
 namespace Pkcs11Gram.TokenProvider.Mock
 {
-    public class Token : TokenBase
+    public class Token : TokenBase<Session>
     {
-        public Token()
-            : base("Mjollnir<mjollnir@59k.org>",
+        public Token(IKernel kernel)
+            : base(kernel,
+                  "Mjollnir<mjollnir@59k.org>",
                   "Mock",
                   "1111111111111111")
         {
         }
 
-        protected override Task<ISession> ProcessOpenSession()
+        protected override Task<ISession> ProcessOpenSession(Session session)
         {
             throw new NotImplementedException();
         }

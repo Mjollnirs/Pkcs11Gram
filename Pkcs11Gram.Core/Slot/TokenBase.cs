@@ -18,17 +18,23 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Castle.MicroKernel;
 using Pkcs11Gram.Core.Pkcs11;
 
 namespace Pkcs11Gram.Core.Slot
 {
-    public abstract class TokenBase : IToken
+    public abstract class TokenBase<TSeesion> : IToken
+        where TSeesion: SessionBase, ISession
     {
+        private readonly IKernel Kernel;
+
         public TokenBase(
+            IKernel kernel,
             string manufacturerId,
             string model,
             string serialNumber)
         {
+            Kernel = kernel;
             if (manufacturerId.Length > 32)
                 manufacturerId = manufacturerId.Substring(0, 32);
 
@@ -269,14 +275,14 @@ namespace Pkcs11Gram.Core.Slot
         /// <returns></returns>
         public async Task<ISession> OpenSession()
         {
-            return await ProcessOpenSession();
+            return await ProcessOpenSession(Kernel.Resolve<TSeesion>());
         }
 
         /// <summary>
         /// Process open a new session.
         /// </summary>
         /// <returns></returns>
-        protected abstract Task<ISession> ProcessOpenSession();
+        protected abstract Task<ISession> ProcessOpenSession(TSeesion seesion);
 
         private byte[] ConvertDateTimeToByte(DateTime? dateTime)
         {

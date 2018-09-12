@@ -28,9 +28,9 @@ namespace Pkcs11Gram.Core
 {
     public abstract class SlotInstallerBase<TProvider, TSlot, TToken, TSession> : InstallerBase
         where TProvider : ProviderBase<TSlot, TToken, TSession> ,IProvider
-        where TSlot: class, ISlot
-        where TToken: class, IToken
-        where TSession: class, ISession
+        where TSlot: SlotBase<TToken, TSession>, ISlot
+        where TToken: TokenBase<TSession>, IToken
+        where TSession: SessionBase, ISession
     {
         private IWindsorContainer Container;
 
