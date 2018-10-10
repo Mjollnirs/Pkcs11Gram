@@ -16,6 +16,7 @@
 // limitations under the License.
 using Castle.MicroKernel;
 using Pkcs11Gram.Core.Pkcs11;
+using Pkcs11Gram.Core.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,14 +24,14 @@ using System.Threading.Tasks;
 
 namespace Pkcs11Gram.Core.Slot
 {
-    public abstract class SlotBase<TToken, TSession> : ISlot
+    public abstract class SlotBase<TToken, TSession> : Base, ISlot
         where TToken : TokenBase<TSession>, IToken
         where TSession : SessionBase, ISession
     {
         /// <summary>
         /// Slot Id
         /// </summary>
-        public uint SlotId { get; set; }
+        public uint SlotId { get; }
 
         /// <summary>
         /// Slot Description
@@ -69,14 +70,10 @@ namespace Pkcs11Gram.Core.Slot
         /// </summary>
         public bool IsHardware { get; protected set; }
 
-        private readonly IKernel Kernel;
-
         public SlotBase(
-            IKernel kernel,
             string slotDescription,
             string manufacturerId)
         {
-            Kernel = kernel;
             if (slotDescription.Length > 60)
                 slotDescription = slotDescription.Substring(0, 60);
 
@@ -125,9 +122,11 @@ namespace Pkcs11Gram.Core.Slot
         /// <returns></returns>
         public async Task<IToken> GetToken()
         {
-            return await ProcessToken(Kernel.Resolve<TToken>());
+            TToken token = await ProcessToken(Kernel.Resolve<TToken>());
+            token.Slot = this;
+            return token;
         }
 
-        protected abstract Task<IToken> ProcessToken(TToken token);
+        protected abstract Task<TToken> ProcessToken(TToken token);
     }
 }

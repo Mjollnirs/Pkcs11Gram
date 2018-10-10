@@ -20,7 +20,9 @@ using System.Text;
 
 namespace Pkcs11Gram.Core.Slot
 {
-    public interface ISession
+    public interface ISession : IBase
     {
+        DateTime CreateTime { get; }
+        IToken Token { get; }
     }
 }

@@ -19,20 +19,22 @@ using Pkcs11Gram.Core.Pkcs11;
 using Pkcs11Gram.Core.Slot;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Pkcs11Gram.Loader.EntryPoint
 {
     internal partial class Engine
     {
-        public Rv C_OpenSession(UInt32 slotID, SlotFlags flags, IntPtr pApplication, Notify Notify, IntPtr phSession)
+        public Rv C_OpenSession(UInt32 slotID, SlotFlags flags, IntPtr pApplication, Notify notify, IntPtr phSession)
         {
             if (phSession == IntPtr.Zero)
                 return Rv.ARGUMENTS_BAD;
 
             IToken token = GetToken(slotID);
+            UInt32 sessionId = token.OpenSession().Result;
 
-            token.OpenSession();
+            Marshal.StructureToPtr(sessionId, phSession, false);
 
             return Rv.OK;
         }

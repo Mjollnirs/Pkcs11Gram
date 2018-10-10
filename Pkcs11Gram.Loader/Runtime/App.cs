@@ -31,7 +31,7 @@ namespace Pkcs11Gram.Loader.Runtime
 {
     internal sealed class App : AppBase, IApp
     {
-        internal IKernel Kernel { get; private set; }
+        public IKernel Kernel { get; private set; }
         private ILogger m_logger;
 
         public App(IKernel kernel)
@@ -81,22 +81,12 @@ namespace Pkcs11Gram.Loader.Runtime
         public ILibraryVersion LibraryVersion { get; } = new LibraryVersion();
 
         /// <summary>
-        /// All Slots
-        /// </summary>
-        public IDictionary<uint, ISlot> Slots { get; private set; } = new Dictionary<uint, ISlot>();
-
-        /// <summary>
-        /// All Opened Session
-        /// </summary>
-        public IDictionary<uint, ISession> Sessions { get; private set; } = new Dictionary<uint, ISession>();
-
-        /// <summary>
         /// Finalize Library
         /// </summary>
         /// <returns></returns>
         public async Task<bool> Finalize()
         {
-            Slots.Clear();
+            _slot.Clear();
             IsInitialized = false;
             await Task.Yield();
             return true;
@@ -116,8 +106,7 @@ namespace Pkcs11Gram.Loader.Runtime
                 foreach (var slot in slots)
                 {
                     UInt32 id = Convert.ToUInt32(Slots.Count);
-                    slot.SlotId = id;
-                    Slots.Add(id, slot);
+                    _slot.Add(id, slot);
                 }
             }
 

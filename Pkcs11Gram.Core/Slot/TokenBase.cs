@@ -16,25 +16,24 @@
 // limitations under the License.
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Castle.MicroKernel;
+using Force.DeepCloner;
 using Pkcs11Gram.Core.Pkcs11;
+using Pkcs11Gram.Core.Runtime;
 
 namespace Pkcs11Gram.Core.Slot
 {
-    public abstract class TokenBase<TSeesion> : IToken
-        where TSeesion: SessionBase, ISession
+    public abstract class TokenBase<TSeesion> : Base, IToken
+        where TSeesion : SessionBase, ISession
     {
-        private readonly IKernel Kernel;
-
         public TokenBase(
-            IKernel kernel,
             string manufacturerId,
             string model,
             string serialNumber)
         {
-            Kernel = kernel;
             if (manufacturerId.Length > 32)
                 manufacturerId = manufacturerId.Substring(0, 32);
 
@@ -48,6 +47,8 @@ namespace Pkcs11Gram.Core.Slot
             Model = model;
             SerialNumber = serialNumber;
         }
+
+        public ISlot Slot { get; internal set; }
 
         /// <summary>
         /// Token lable
@@ -273,16 +274,18 @@ namespace Pkcs11Gram.Core.Slot
         /// Open a new Session
         /// </summary>
         /// <returns></returns>
-        public async Task<ISession> OpenSession()
+        public async Task<UInt32> OpenSession()
         {
-            return await ProcessOpenSession(Kernel.Resolve<TSeesion>());
+            TSeesion session = await ProcessOpenSession(Kernel.Resolve<TSeesion>());
+            session.Token = this;
+            return AppBase.AddSession(session);
         }
 
         /// <summary>
         /// Process open a new session.
         /// </summary>
         /// <returns></returns>
-        protected abstract Task<ISession> ProcessOpenSession(TSeesion seesion);
+        protected abstract Task<TSeesion> ProcessOpenSession(TSeesion seesion);
 
         private byte[] ConvertDateTimeToByte(DateTime? dateTime)
         {

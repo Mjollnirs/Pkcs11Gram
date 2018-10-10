@@ -15,18 +15,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 using Castle.MicroKernel;
+using Pkcs11Gram.Core.Runtime;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Pkcs11Gram.Core.Slot
 {
-    public abstract class SessionBase : ISession
+    public abstract class SessionBase : Base, ISession
     {
-        private readonly IKernel Kernel;
-        public SessionBase(IKernel kernel)
+        public DateTime CreateTime { get; private set; }
+
+        public IToken Token { get; internal set; }
+
+        public SessionBase()
         {
-            Kernel = kernel;
+            CreateTime = DateTime.Now;
         }
     }
 }

@@ -22,8 +22,10 @@ using System.Threading.Tasks;
 
 namespace Pkcs11Gram.Core.Slot
 {
-    public interface IToken
+    public interface IToken : IBase
     {
+        ISlot Slot { get; }
+
         /// <summary>
         /// Token lable
         /// 32 bytes
@@ -216,6 +218,6 @@ namespace Pkcs11Gram.Core.Slot
         /// Open a new Session
         /// </summary>
         /// <returns></returns>
-        Task<ISession> OpenSession();
+        Task<UInt32> OpenSession();
     }
 }

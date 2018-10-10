@@ -15,6 +15,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 using Castle.Core.Logging;
+using Castle.MicroKernel;
 using Pkcs11Gram.Core.Pkcs11;
 using Pkcs11Gram.Core.Slot;
 using System;
@@ -49,5 +50,10 @@ namespace Pkcs11Gram.Core.Runtime
         /// Library Version
         /// </summary>
         ILibraryVersion LibraryVersion { get; }
+
+        /// <summary>
+        /// Castle Kernel
+        /// </summary>
+        IKernel Kernel { get; }
     }
 }

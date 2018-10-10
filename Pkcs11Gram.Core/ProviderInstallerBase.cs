@@ -26,7 +26,7 @@ using System.Text;
 
 namespace Pkcs11Gram.Core
 {
-    public abstract class SlotInstallerBase<TProvider, TSlot, TToken, TSession> : InstallerBase
+    public abstract class ProviderInstallerBase<TProvider, TSlot, TToken, TSession> : InstallerBase
         where TProvider : ProviderBase<TSlot, TToken, TSession> ,IProvider
         where TSlot: SlotBase<TToken, TSession>, ISlot
         where TToken: TokenBase<TSession>, IToken

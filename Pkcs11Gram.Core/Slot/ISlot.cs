@@ -22,12 +22,12 @@ using System.Threading.Tasks;
 
 namespace Pkcs11Gram.Core.Slot
 {
-    public interface ISlot
+    public interface ISlot : IBase
     {
         /// <summary>
         /// Slot Id
         /// </summary>
-        UInt32 SlotId { get; set; }
+        UInt32 SlotId { get; }
 
         /// <summary>
         /// Slot Description

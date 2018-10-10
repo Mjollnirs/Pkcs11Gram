@@ -15,6 +15,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 using Castle.MicroKernel;
+using Pkcs11Gram.Core.Runtime;
 using Pkcs11Gram.Core.Slot;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,5 @@ namespace Pkcs11Gram.TokenProvider.Mock
 {
     public class Session : SessionBase
     {
-        public Session(IKernel kernel)
-            : base(kernel)
-        {
-
-        }
     }
 }
